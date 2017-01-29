@@ -6,8 +6,7 @@ services:
       - 8888:8888
     volumes:
       - $SSH_AUTH_SOCK:/ssh-agent
-      - .:/home/jovyan/work/qa
-      - ~/.gitconfig:/home/jovyan/.gitconfig
+      - .:/home/jovyan/work/testbox
     environment:
       - SSH_AUTH_SOCK=/ssh-agent
   hub:

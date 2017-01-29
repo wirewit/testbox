@@ -10,14 +10,14 @@ autotests. This setup is framework agnostic so it is likely to be compatible wit
 almost any of python-based testing frameworks (yes, including your own
 best-of-the-best-homegrown-framework-which-is-the-next-big-thing-in-automated-testing).
 
-This environment include next tools packed as docker conatiner:
+Included tools (all packed as docker conatiner):
  - selenium hub
  - selenium chrome node with VNC server for debugging
  - selenium firefox node with VNC server
  - base for building jupyter-powered python interactive console
    web-based text editor and web-based shell to python container
 
-As a bonus in juyter container included
+As a bonus jupyter container itself contains:
 
   - behave (probaly the best python based bdd-tool)
   - allure tookit (java-based tool for generating test reports from Yandex team)

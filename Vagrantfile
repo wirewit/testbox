@@ -68,4 +68,8 @@ Vagrant.configure("2") do |config|
      pip install docker-compose
   SHELL
 
+  config.vm.provision "shell", inline: <<-SHELL
+    cd /home/ubuntu/testbox && docker-compose up -d
+  SHELL
+
 end
