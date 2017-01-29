@@ -1,0 +1,6 @@
+behave
+requests
+selenium
+pyyaml
+pytest-allure-adaptor
+pytest

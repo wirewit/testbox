@@ -1,0 +1,38 @@
+version: '2'
+services:
+  behave:
+    build: .
+    ports:
+      - 8888:8888
+    volumes:
+      - $SSH_AUTH_SOCK:/ssh-agent
+      - .:/home/jovyan/work/qa
+      - ~/.gitconfig:/home/jovyan/.gitconfig
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
+  hub:
+    image: selenium/hub
+    ports:
+      - 4444:4444
+  chrome:
+    image: selenium/node-chrome-debug
+    ports:
+      - 5901:5900
+    depends_on:
+        - hub
+    environment:
+      - NODE_MAX_INSTANCES=5
+      - NODE_MAX_SESSION=5
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+  firefox:
+    image: selenium/node-firefox-debug
+    ports:
+      - 5902:5900
+    depends_on:
+        - hub
+    environment:
+      - NODE_MAX_INSTANCES=5
+      - NODE_MAX_SESSION=5
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
