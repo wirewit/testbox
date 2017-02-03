@@ -5,10 +5,7 @@ services:
     ports:
       - 8888:8888
     volumes:
-      - $SSH_AUTH_SOCK:/ssh-agent
-      - .:/home/jovyan/work/testbox
-    environment:
-      - SSH_AUTH_SOCK=/ssh-agent
+      - /home/ubuntu:/home/jovyan/work/
     restart: always
   hub:
     image: selenium/hub

@@ -3,5 +3,6 @@
 *.swp
 .env
 .tmp
+*.log
 .DS_Store
 .vagrant
